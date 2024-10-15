@@ -19,4 +19,7 @@ interface PersonsDao {
     @Query("DELETE FROM persons")
     suspend fun clearPersons()
 
+    @Query("DELETE FROM persons WHERE id = :userId")
+    suspend fun deletePersonById(userId: Long)
+
 }

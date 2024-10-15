@@ -25,6 +25,11 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.LinkAnnotation
@@ -61,13 +66,14 @@ class MainActivity: ComponentActivity() {
 @Composable
 fun NavigationMenu() {
     //MainScreen(name = "Hilt DB")
+
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.Main.route) {
-        composable(route = Screen.Main.route) {
+    NavHost(navController = navController, startDestination = Screen.Main.name) {
+        composable(route = Screen.Main.name) {
             MainScreen(navController = navController, "Person BD")
         }
-        composable(route = Screen.Add.route + "?text={text}",
-            arguments = listOf(
+        composable(route = Screen.Add.name + "?text={text}",
+             arguments = listOf(
                 navArgument("text") {
                     type = NavType.StringType
                     nullable = true

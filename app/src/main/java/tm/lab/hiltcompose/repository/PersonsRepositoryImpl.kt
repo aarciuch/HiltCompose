@@ -14,8 +14,12 @@ class PersonsRepositoryImpl @Inject constructor(private val personsDao : Persons
 
     override fun getPersonsSize(): Flow<Int> = personsDao.getPersonsSize()
 
-    override suspend fun clearPaersons() {
+    override suspend fun clearPersons() {
         personsDao.clearPersons()
+    }
+
+    override suspend fun delelePersonById(userID: Long) {
+        personsDao.deletePersonById(userID)
     }
 
 }

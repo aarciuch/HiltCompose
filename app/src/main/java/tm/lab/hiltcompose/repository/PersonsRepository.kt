@@ -7,5 +7,6 @@ interface PersonsRepository {
     suspend fun insertPerson(person: Persons)
     fun getAllPersons() : Flow<List<Persons>>
     fun getPersonsSize(): Flow<Int>
-    suspend fun clearPaersons()
+    suspend fun clearPersons()
+    suspend fun delelePersonById(userID : Long)
 }

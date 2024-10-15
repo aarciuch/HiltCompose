@@ -36,7 +36,13 @@ class PersonsViewModel @Inject constructor(val personsRepository: PersonsReposit
     }
     fun clearPersons() {
         viewModelScope.launch {
-            personsRepository.clearPaersons()
+            personsRepository.clearPersons()
+        }
+    }
+
+    fun deletePersonById(personID: Long) {
+        viewModelScope.launch {
+            personsRepository.delelePersonById(personID)
         }
     }
 }
